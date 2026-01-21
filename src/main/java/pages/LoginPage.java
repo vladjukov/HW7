@@ -27,8 +27,9 @@ public class LoginPage {
      *
      * @param email
      */
-    public void setInputEmail(String email) {
+    public LoginPage setInputEmail(String email) {
         inputEmail.setValue(email);
+        return this;
     }
 
     /**
@@ -36,8 +37,9 @@ public class LoginPage {
      *
      * @param password
      */
-    public void setInputPassword(String password) {
+    public LoginPage setInputPassword(String password) {
         inputPassword.setValue(password);
+        return this;
     }
 
     /**

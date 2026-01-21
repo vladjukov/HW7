@@ -21,7 +21,6 @@ public class TicketPage {
      * open the ticket pay page
      *
      * @return
-     */
     public static TicketPage open() {
         Selenide.open("/movies/961");
         return new TicketPage();
@@ -30,7 +29,7 @@ public class TicketPage {
 
     public void clickFilm() {
         film.click();
-    }
+    }*/
 
     /**
      * enter the card number
