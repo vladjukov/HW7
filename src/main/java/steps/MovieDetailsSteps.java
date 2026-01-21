@@ -6,7 +6,7 @@ import pages.MovieDetailsPage;
 public class MovieDetailsSteps {
     MovieDetailsPage movieDetailsPage = new MovieDetailsPage();
 
-    @Step("Нажимаем на кнопку Купить билет")
+    @Step("РїРѕРєСѓРїР°РµРј Р±РёР»РµС‚")
     public PayTicketSteps pay() {
         movieDetailsPage.clickButtonPay();
         return new PayTicketSteps();

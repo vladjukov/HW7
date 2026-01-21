@@ -18,7 +18,14 @@ dependencies {
     testImplementation 'org.assertj:assertj-core:3.27.4'
     implementation 'io.qameta.allure:allure-junit5:2.29.1'
 }
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 
 test {
     useJUnitPlatform()
+    systemProperty 'file.encoding', 'UTF-8'
 }

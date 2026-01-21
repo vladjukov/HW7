@@ -7,7 +7,7 @@ import pages.RecentMoviesPage;
 public class ChooseMovieSteps {
     RecentMoviesPage recentMoviesPage = new RecentMoviesPage();
 
-    @Step("Выбираем фильм по индексу")
+    @Step("РІС‹Р±РёСЂР°РµРј С„РёР»СЊРј РїРѕ РёРЅРґРµРєСЃСѓ")
     public MovieDetailsSteps choose(int index) {
         recentMoviesPage.clickChooseMovie(index);
         return new MovieDetailsSteps();

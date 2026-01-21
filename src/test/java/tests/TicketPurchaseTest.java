@@ -15,7 +15,7 @@ public class TicketPurchaseTest {
         ChooseMovieSteps chooseMovieSteps = new ChooseMovieSteps();
         MovieDetailsSteps movieDetailsSteps = new MovieDetailsSteps();
         PayTicketSteps payTicketSteps = new PayTicketSteps();
-        chooseMovieSteps.choose(1);
+        chooseMovieSteps.choose(2);
         movieDetailsSteps.pay();
         payTicketSteps.payTicketStep();
 
