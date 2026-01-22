@@ -6,8 +6,8 @@ import pages.MovieDetailsPage;
 public class MovieDetailsSteps {
     MovieDetailsPage movieDetailsPage = new MovieDetailsPage();
 
-    @Step("покупаем билет")
-    public PayTicketSteps pay() {
+    @Step("Покупаем билет")
+    public PayTicketSteps payStep() {
         movieDetailsPage.clickButtonPay();
         return new PayTicketSteps();
     }

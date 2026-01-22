@@ -12,7 +12,7 @@ public class PayTicketSteps {
 
     TicketPage ticketPage = new TicketPage();
 
-    @Step("Покупаем билет вводя данные")
+    @Step("Покупаем билет вводя валидные данные")
     public void payTicketStep() {
         ticketPage.setInputCardNumber(CARD_NUMBER);
         ticketPage.setInputCardholderName(CARDHOLDER_NAME);
