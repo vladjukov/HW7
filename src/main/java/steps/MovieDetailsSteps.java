@@ -6,9 +6,18 @@ import pages.MovieDetailsPage;
 public class MovieDetailsSteps {
     MovieDetailsPage movieDetailsPage = new MovieDetailsPage();
 
-    @Step("Покупаем билет")
-    public PayTicketSteps payStep() {
+    @Step("Купить билет")
+    public TicketSteps navigateToPaymentStep() {
         movieDetailsPage.clickButtonPay();
-        return new PayTicketSteps();
+        return new TicketSteps();
     }
+
+    @Step
+    public MovieDetailsPage reviewPublicStep (String review) {
+        movieDetailsPage.setMovieReviewInput(review);
+        movieDetailsPage.clickMovieReviewSubmitButton();
+        return new MovieDetailsPage();
+    }
+
+
 }

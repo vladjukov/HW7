@@ -3,7 +3,7 @@ package steps;
 import io.qameta.allure.Step;
 import pages.TicketPage;
 
-public class PayTicketSteps {
+public class TicketSteps {
     private final static String CARD_NUMBER = "4242424242424242";
     private final static String CARDHOLDER_NAME = "Vladik Marshal";
     private final static String MONTH = "Декабрь";
@@ -13,12 +13,22 @@ public class PayTicketSteps {
     TicketPage ticketPage = new TicketPage();
 
     @Step("Покупаем билет вводя валидные данные")
-    public void payTicketStep() {
+    public void ticketStep() {
         ticketPage.setInputCardNumber(CARD_NUMBER);
         ticketPage.setInputCardholderName(CARDHOLDER_NAME);
         ticketPage.submitButtonMonth(MONTH);
         ticketPage.submitButtonYear(YEAR);
         ticketPage.setInputCvc(CVC);
         ticketPage.submitButtonPay();
+    }
+    @Step("Покупаем билет вводя валидные данные")
+    public OpenMovieSteps ticketSuccessStep() {
+        ticketPage.setInputCardNumber(CARD_NUMBER);
+        ticketPage.setInputCardholderName(CARDHOLDER_NAME);
+        ticketPage.submitButtonMonth(MONTH);
+        ticketPage.submitButtonYear(YEAR);
+        ticketPage.setInputCvc(CVC);
+        ticketPage.submitButtonPay();
+        return new OpenMovieSteps();
     }
 }

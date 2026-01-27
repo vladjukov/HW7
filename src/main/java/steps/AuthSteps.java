@@ -12,7 +12,6 @@ public class AuthSteps {
                 .setInputEmail(email)
                 .setInputPassword(password)
                 .clickButtonAuthLogin();
-        System.out.println("Привет");
         return this;
     }
 }

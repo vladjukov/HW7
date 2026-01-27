@@ -1,5 +1,6 @@
 package tests;
 
+
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -15,21 +16,26 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 @UITest
-@Epic("Покупка билета")
+@Epic("Публикация отзыва")
 @Feature("Вход в систему")
 @Tag("Авторизация")
-public class TicketPurchaseTest {
-
+public class ReviewPublicationTest {
 
     @Test
     @Story("Пользователь вводит корректные данные")
     @DisplayName("Проверка логина позитивная")
-    @Description("Проверка успешной покупки с валидными данными")
-    public void ticketPayTest() {
+    @Description("Проверка публикации отзыва")
+    public void publicationReviewTest() {
         OpenMovieSteps openMovieSteps = new OpenMovieSteps();
-        openMovieSteps.openMovieStep(2)
+        openMovieSteps.openMovieStep(8)
                 .navigateToPaymentStep()
-                .ticketStep();
-        $(byText("Спасибо за покупку")).shouldBe(visible);
+                .ticketSuccessStep()
+                .clickButton();
+        openMovieSteps.openMovieStep(8)
+                .reviewPublicStep("Тестовый авто отзыв");
+        $(byText("Тестовый авто отзыв"))
+                .scrollIntoView(false)
+                .shouldBe(visible);
     }
+
 }
