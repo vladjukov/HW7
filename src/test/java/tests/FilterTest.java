@@ -1,5 +1,6 @@
 package tests;
 
+
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -11,20 +12,18 @@ import org.junit.jupiter.api.Test;
 import steps.OpenMovieSteps;
 
 @UITest
-@Epic("Покупка билета")
+@Epic("Фильтрация фильмов")
 @Feature("Вход в систему")
 @Tag("Авторизация")
-public class TicketPurchaseTest {
-
+public class FilterTest {
 
     @Test
     @Story("Пользователь вводит корректные данные")
     @DisplayName("Проверка логина позитивная")
-    @Description("Проверка успешной покупки с валидными данными")
-    public void ticketPayTest() {
+    @Description("Проверка фильтрации фильма")
+    public void checkingCorrectnessOfMovieFiltering() {
         OpenMovieSteps openMovieSteps = new OpenMovieSteps();
-        openMovieSteps.openMovieStep(2)
-                .clickBuyButtonStep()
-                .ticketStep();
+        openMovieSteps.filterMoviesStep("SPB", "Комедия", "Новые", 1)
+                .checkingGenreAfterFiltering("Комедия");
     }
 }

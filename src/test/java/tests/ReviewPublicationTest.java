@@ -11,10 +11,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import steps.OpenMovieSteps;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-
 @UITest
 @Epic("Публикация отзыва")
 @Feature("Вход в систему")
@@ -27,15 +23,13 @@ public class ReviewPublicationTest {
     @Description("Проверка публикации отзыва")
     public void publicationReviewTest() {
         OpenMovieSteps openMovieSteps = new OpenMovieSteps();
-        openMovieSteps.openMovieStep(8)
-                .navigateToPaymentStep()
+        openMovieSteps.openMovieStep(9)
+                .clickBuyButtonStep()
                 .ticketSuccessStep()
                 .clickButton();
-        openMovieSteps.openMovieStep(8)
-                .reviewPublicStep("Тестовый авто отзыв");
-        $(byText("Тестовый авто отзыв"))
-                .scrollIntoView(false)
-                .shouldBe(visible);
+        openMovieSteps.openMovieStep(9)
+                .reviewPublicStep("Тестовый авто отзыв")
+                .checkReviewVisible("Тестовый авто отзыв");
     }
 
 }

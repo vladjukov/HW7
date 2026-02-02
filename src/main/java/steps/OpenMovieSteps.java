@@ -13,9 +13,20 @@ public class OpenMovieSteps {
         openMoviePage.clickSelectMovie(index);
         return new MovieDetailsSteps();
     }
+
     @Step("Нажать кнопку Вернуться на главную")
     public OpenMoviePage clickButton() {
         $x("//button[@type='button' and text()='Вернуться на главную']").click();
         return new OpenMoviePage();
+    }
+
+    @Step("Отфильтровать фильмы")
+    public MovieDetailsSteps filterMoviesStep(String cityName, String genreFilm, String novelty, int index) {
+        openMoviePage.clickAllMoviesButton()
+                .selectCityFilter(cityName)
+                .selectGenreFilter(genreFilm)
+                .selectNoveltySorting(novelty)
+                .clickSelectMovie(index);
+        return new MovieDetailsSteps();
     }
 }

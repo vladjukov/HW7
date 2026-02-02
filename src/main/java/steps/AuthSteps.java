@@ -9,9 +9,9 @@ public class AuthSteps {
     @Step("Логинемся")
     public AuthSteps loginStep(String email, String password) {
         loginPage.open()
-                .setInputEmail(email)
-                .setInputPassword(password)
-                .clickButtonAuthLogin();
+                .setEmailInput(email)
+                .setPasswordInput(password)
+                .clickAuthLoginButton();
         return this;
     }
 }

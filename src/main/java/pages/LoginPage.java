@@ -6,9 +6,9 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
-    private final SelenideElement inputEmail = $("#email");
-    private final SelenideElement inputPassword = $("#password");
-    private final SelenideElement buttonAuthLogin = $("button[data-qa-id='login_submit_button']");
+    private final SelenideElement emailInput = $("#email");
+    private final SelenideElement passwordInput = $("#password");
+    private final SelenideElement authLoginButton = $("button[data-qa-id='login_submit_button']");
 
 
     /**
@@ -26,8 +26,8 @@ public class LoginPage {
      *
      * @param email
      */
-    public LoginPage setInputEmail(String email) {
-        inputEmail.setValue(email);
+    public LoginPage setEmailInput(String email) {
+        emailInput.setValue(email);
         return this;
     }
 
@@ -36,16 +36,16 @@ public class LoginPage {
      *
      * @param password
      */
-    public LoginPage setInputPassword(String password) {
-        inputPassword.setValue(password);
+    public LoginPage setPasswordInput(String password) {
+        passwordInput.setValue(password);
         return this;
     }
 
     /**
      * click on the button
      */
-    public void clickButtonAuthLogin() {
-        buttonAuthLogin.click();
+    public void clickAuthLoginButton() {
+        authLoginButton.click();
     }
 
 

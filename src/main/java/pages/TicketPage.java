@@ -2,17 +2,19 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class TicketPage {
-    private final SelenideElement film = $("div[class='p-6 pt-0']");
-    private final SelenideElement inputCardNumber = $("input[name='card.cardNumber']");
-    private final SelenideElement inputCardholderName = $("input[name='card.cardHolder']");
-    private final SelenideElement buttonMonth = $("#month");
-    private final SelenideElement buttonYear = $("#year");
-    private final SelenideElement inputCvc = $("#cvc");
-    private final SelenideElement buttonPay = $("button[data-qa-id='payment_submit_button']");
+    private final SelenideElement cardNumberInput = $("input[name='card.cardNumber']");
+    private final SelenideElement cardholderNameInput = $("input[name='card.cardHolder']");
+    private final SelenideElement monthButton = $("#month");
+    private final SelenideElement yearButton = $("#year");
+    private final SelenideElement cvcInput = $("#cvc");
+    private final SelenideElement payButton = $("button[data-qa-id='payment_submit_button']");
+    private final SelenideElement successPayText = $x("//p[@class='text-xl mt-5']");
+
 
 
     /**
@@ -20,8 +22,8 @@ public class TicketPage {
      *
      * @param cardNumber
      */
-    public void setInputCardNumber(String cardNumber) {
-        inputCardNumber.setValue(cardNumber);
+    public void setCardNumberInput(String cardNumber) {
+        cardNumberInput.setValue(cardNumber);
     }
 
     /**
@@ -29,8 +31,8 @@ public class TicketPage {
      *
      * @param cardholderName
      */
-    public void setInputCardholderName(String cardholderName) {
-        inputCardholderName.setValue(cardholderName);
+    public void setCardholderNameInput(String cardholderName) {
+        cardholderNameInput.setValue(cardholderName);
     }
 
     /**
@@ -38,8 +40,8 @@ public class TicketPage {
      *
      * @param month
      */
-    public void submitButtonMonth(String month) {
-        buttonMonth.click();
+    public void selectMonthButton(String month) {
+        monthButton.click();
         $x("//*[text() = '" + month + "']/parent::*[@class]").scrollIntoView(false).click();
 
     }
@@ -49,8 +51,8 @@ public class TicketPage {
      *
      * @param year year
      */
-    public void submitButtonYear(String year) {
-        buttonYear.click();
+    public void selectYearButton(String year) {
+        yearButton.click();
         $x("//*[text() = '" + year + "']/parent::*[@class]").scrollIntoView(false).click();
     }
 
@@ -59,15 +61,24 @@ public class TicketPage {
      *
      * @param cvc
      */
-    public void setInputCvc(String cvc) {
-        inputCvc.setValue(cvc);
+    public void setCvcInput(String cvc) {
+        cvcInput.setValue(cvc);
     }
 
     /**
      * submit Button Pay
      */
-    public void submitButtonPay() {
-        buttonPay.click();
+    public void clickPayButton() {
+        payButton.click();
+    }
+
+    /**
+     * Подтверждение успешной покупки
+     *
+     * @return
+     */
+    public SelenideElement getSuccessPayText() {
+        return successPayText;
     }
 
 

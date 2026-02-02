@@ -3,6 +3,8 @@ package steps;
 import io.qameta.allure.Step;
 import pages.TicketPage;
 
+import static com.codeborne.selenide.Condition.visible;
+
 public class TicketSteps {
     private final static String CARD_NUMBER = "4242424242424242";
     private final static String CARDHOLDER_NAME = "Vladik Marshal";
@@ -14,21 +16,22 @@ public class TicketSteps {
 
     @Step("Покупаем билет вводя валидные данные")
     public void ticketStep() {
-        ticketPage.setInputCardNumber(CARD_NUMBER);
-        ticketPage.setInputCardholderName(CARDHOLDER_NAME);
-        ticketPage.submitButtonMonth(MONTH);
-        ticketPage.submitButtonYear(YEAR);
-        ticketPage.setInputCvc(CVC);
-        ticketPage.submitButtonPay();
+        ticketPage.setCardNumberInput(CARD_NUMBER);
+        ticketPage.setCardholderNameInput(CARDHOLDER_NAME);
+        ticketPage.selectMonthButton(MONTH);
+        ticketPage.selectYearButton(YEAR);
+        ticketPage.setCvcInput(CVC);
+        ticketPage.clickPayButton();
+        ticketPage.getSuccessPayText().shouldBe(visible);
     }
     @Step("Покупаем билет вводя валидные данные")
     public OpenMovieSteps ticketSuccessStep() {
-        ticketPage.setInputCardNumber(CARD_NUMBER);
-        ticketPage.setInputCardholderName(CARDHOLDER_NAME);
-        ticketPage.submitButtonMonth(MONTH);
-        ticketPage.submitButtonYear(YEAR);
-        ticketPage.setInputCvc(CVC);
-        ticketPage.submitButtonPay();
+        ticketPage.setCardNumberInput(CARD_NUMBER);
+        ticketPage.setCardholderNameInput(CARDHOLDER_NAME);
+        ticketPage.selectMonthButton(MONTH);
+        ticketPage.selectYearButton(YEAR);
+        ticketPage.setCvcInput(CVC);
+        ticketPage.clickPayButton();
         return new OpenMovieSteps();
     }
 }
