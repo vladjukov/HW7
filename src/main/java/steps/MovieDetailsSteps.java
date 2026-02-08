@@ -9,20 +9,20 @@ public class MovieDetailsSteps {
     MovieDetailsPage movieDetailsPage = new MovieDetailsPage();
 
     @Step("Купить билет")
-    public TicketSteps clickBuyButtonStep() {
+    public TicketSteps buyTicket() {
         movieDetailsPage.clickPayButton();
         return new TicketSteps();
     }
 
     @Step("Оставить отзыв")
-    public MovieDetailsSteps reviewPublicStep (String review) {
+    public MovieDetailsSteps submitReview(String review) {
         movieDetailsPage.setMovieReviewInput(review);
         movieDetailsPage.clickMovieReviewSubmitButton();
         return this;
     }
 
     @Step("Проверяем, что отзыв виден на странице")
-    public MovieDetailsSteps checkReviewVisible(String review) {
+    public MovieDetailsSteps verifyReviewVisible(String review) {
         movieDetailsPage.getReviewByText(review)
                 .scrollIntoView(false)
                 .shouldBe(visible);
@@ -30,7 +30,7 @@ public class MovieDetailsSteps {
     }
 
     @Step("Проверка жанра фильма после фильтрации")
-    public MovieDetailsSteps checkingGenreAfterFiltering(String expectedGenre) {
+    public MovieDetailsSteps verifyGenre(String expectedGenre) {
         movieDetailsPage.getGenreFilm(expectedGenre).shouldBe(visible);
         return this;
     }

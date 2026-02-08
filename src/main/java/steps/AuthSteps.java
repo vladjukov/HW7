@@ -7,7 +7,7 @@ public class AuthSteps {
     private final LoginPage loginPage = new LoginPage();
 
     @Step("Логинемся")
-    public AuthSteps loginStep(String email, String password) {
+    public AuthSteps login(String email, String password) {
         loginPage.open()
                 .setEmailInput(email)
                 .setPasswordInput(password)

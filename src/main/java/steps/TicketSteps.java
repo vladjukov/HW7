@@ -15,7 +15,7 @@ public class TicketSteps {
     TicketPage ticketPage = new TicketPage();
 
     @Step("Покупаем билет вводя валидные данные")
-    public void ticketStep() {
+    public void enterTheCardDetailsAndClickTheBuyButton() {
         ticketPage.setCardNumberInput(CARD_NUMBER);
         ticketPage.setCardholderNameInput(CARDHOLDER_NAME);
         ticketPage.selectMonthButton(MONTH);
@@ -23,15 +23,5 @@ public class TicketSteps {
         ticketPage.setCvcInput(CVC);
         ticketPage.clickPayButton();
         ticketPage.getSuccessPayText().shouldBe(visible);
-    }
-    @Step("Покупаем билет вводя валидные данные")
-    public OpenMovieSteps ticketSuccessStep() {
-        ticketPage.setCardNumberInput(CARD_NUMBER);
-        ticketPage.setCardholderNameInput(CARDHOLDER_NAME);
-        ticketPage.selectMonthButton(MONTH);
-        ticketPage.selectYearButton(YEAR);
-        ticketPage.setCvcInput(CVC);
-        ticketPage.clickPayButton();
-        return new OpenMovieSteps();
     }
 }

@@ -14,6 +14,6 @@ public class LoginExtension implements BeforeEachCallback {
         }
 
         AuthSteps authSteps = new AuthSteps();
-        authSteps.loginStep("i89xuuedwt@xkxkud.com", "BestPass7?Q");
+        authSteps.login("i89xuuedwt@xkxkud.com", "BestPass7?Q");
     }
 }

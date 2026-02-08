@@ -1,30 +1,27 @@
 package tests;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import junit.UITest;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import steps.OpenMovieSteps;
 
 @UITest
-@Epic("Покупка билета")
-@Feature("Вход в систему")
-@Tag("Авторизация")
+@Epic("Cinescope")
+@Feature("Покупка билетов")
+@Severity(SeverityLevel.CRITICAL)
+@TmsLink("TEST-001")
 public class TicketPurchaseTest {
 
 
     @Test
-    @Story("Пользователь вводит корректные данные")
-    @DisplayName("Проверка логина позитивная")
-    @Description("Проверка успешной покупки с валидными данными")
+    @Story("Пользователь покупает билет на сеанс")
+    @DisplayName("Покупка билета на фильм")
+    @Description("Тестовый сценарий полной покупки")
     public void ticketPayTest() {
         OpenMovieSteps openMovieSteps = new OpenMovieSteps();
-        openMovieSteps.openMovieStep(2)
-                .clickBuyButtonStep()
-                .ticketStep();
+        openMovieSteps.selectMovie(2)
+                .buyTicket()
+                .enterTheCardDetailsAndClickTheBuyButton();
     }
 }

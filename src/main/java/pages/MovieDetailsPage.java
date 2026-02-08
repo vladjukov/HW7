@@ -4,7 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -56,7 +55,7 @@ public class MovieDetailsPage {
      * @return
      */
     public SelenideElement getGenreFilm(String genreFilm) {
-        return $("p.text-lg.mt-5").shouldHave(text("Жанр:"),text(genreFilm));
+        return $("p.text-lg.mt-5").shouldHave(text("Жанр:"), text(genreFilm));
     }
 
 }

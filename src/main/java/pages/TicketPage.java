@@ -2,7 +2,6 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -14,7 +13,6 @@ public class TicketPage {
     private final SelenideElement cvcInput = $("#cvc");
     private final SelenideElement payButton = $("button[data-qa-id='payment_submit_button']");
     private final SelenideElement successPayText = $x("//p[@class='text-xl mt-5']");
-
 
 
     /**
