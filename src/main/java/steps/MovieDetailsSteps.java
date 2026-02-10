@@ -6,7 +6,7 @@ import pages.MovieDetailsPage;
 import static com.codeborne.selenide.Condition.visible;
 
 public class MovieDetailsSteps {
-    MovieDetailsPage movieDetailsPage = new MovieDetailsPage();
+    private final MovieDetailsPage movieDetailsPage = new MovieDetailsPage();
 
     @Step("Купить билет")
     public TicketSteps buyTicket() {

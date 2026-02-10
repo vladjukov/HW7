@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 import pages.OpenMoviePage;
 
 public class OpenMovieSteps {
-    OpenMoviePage openMoviePage = new OpenMoviePage();
+    private final OpenMoviePage openMoviePage = new OpenMoviePage();
 
     @Step("Выбираем фильм по индексу")
     public MovieDetailsSteps selectMovie(int index) {

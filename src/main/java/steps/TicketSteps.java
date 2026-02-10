@@ -12,16 +12,27 @@ public class TicketSteps {
     private final static String YEAR = "2026";
     private final static String CVC = "123";
 
-    TicketPage ticketPage = new TicketPage();
+    private final TicketPage ticketPage = new TicketPage();
 
-    @Step("Покупаем билет вводя валидные данные")
-    public void enterTheCardDetailsAndClickTheBuyButton() {
-        ticketPage.setCardNumberInput(CARD_NUMBER);
-        ticketPage.setCardholderNameInput(CARDHOLDER_NAME);
-        ticketPage.selectMonthButton(MONTH);
-        ticketPage.selectYearButton(YEAR);
-        ticketPage.setCvcInput(CVC);
+
+    @Step("Заполнить данные карты")
+    public TicketSteps fillCardDetailsAndPurchaseTicket(String cardNumber, String cardholderName, String month, String year, String cvc) {
+        ticketPage.setCardNumberInput(cardNumber);
+        ticketPage.setCardholderNameInput(cardholderName);
+        ticketPage.selectMonthButton(month);
+        ticketPage.selectYearButton(year);
+        ticketPage.setCvcInput(cvc);
         ticketPage.clickPayButton();
+        return this;
+    }
+
+    @Step("Заполнить карту валидными данными")
+    public TicketSteps purchaseTicketWithValidCardData() {
+        return fillCardDetailsAndPurchaseTicket(CARD_NUMBER, CARDHOLDER_NAME, MONTH, YEAR, CVC);
+    }
+
+    @Step("Проверить на успешность оплату")
+    public void verifyPaymentSuccess() {
         ticketPage.getSuccessPayText().shouldBe(visible);
     }
 }

@@ -22,6 +22,7 @@ public class TicketPurchaseTest {
         OpenMovieSteps openMovieSteps = new OpenMovieSteps();
         openMovieSteps.selectMovie(2)
                 .buyTicket()
-                .enterTheCardDetailsAndClickTheBuyButton();
+                .purchaseTicketWithValidCardData()
+                .verifyPaymentSuccess();
     }
 }
